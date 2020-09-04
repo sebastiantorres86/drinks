@@ -29,7 +29,7 @@ const Form = () => {
       }}
     >
       <fieldset className="text-center">
-        <legend>Search drinks by category or ingredient</legend>
+        <legend className="pt-3">Search drinks by category or ingredient</legend>
       </fieldset>
 
       <div className="row mt-4">

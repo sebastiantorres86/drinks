@@ -17,10 +17,10 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: 300,
+    width: 400,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(1, 1, 1),
+    padding: theme.spacing(0),
   },
 }));
 
@@ -87,15 +87,34 @@ const Recipe = ({ recipe }) => {
               handleClose();
             }}
           >
-            <div style={modalStyle} className={classes.paper}>
-              <h2>{infoRecipe.strDrink}</h2>
-              <h3 className="mt-4">Instructions</h3>
-              <p>{infoRecipe.strInstructions}</p>
-
-              <img className="img-fluid my-4" src={infoRecipe.strDrinkThumb} />
-
-              <h3>Ingredients and amounts</h3>
-              <ul>{showIngredients(infoRecipe)}</ul>
+            <div className={classes.paper} style={modalStyle}>
+              <div className="row no-gutters">
+                <div className="col-md-4">
+                  <img
+                    src={infoRecipe.strDrinkThumb}
+                    className="card-img"
+                    style={{ maxWidth: 400 }}
+                    alt="..."
+                    onClick={() => {
+                      setRecipe({});
+                      handleClose();
+                    }}
+                  />
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">{infoRecipe.strDrink}</h5>
+                    <h6>Instructions</h6>
+                    <p className="card-text">{infoRecipe.strInstructions}.</p>
+                    <h6>Ingredients and amounts</h6>
+                    <p className="card-text">
+                      <small className="text-muted">
+                        <ul>{showIngredients(infoRecipe)}</ul>
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </Modal>
         </div>
