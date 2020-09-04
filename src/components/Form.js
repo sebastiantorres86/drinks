@@ -57,7 +57,7 @@ const Form = () => {
           </select>
         </div>
 
-        <div className="col-md-4">
+        <div className="col-md-4 mb-3">
           <input
             type="submit"
             className="btn btn-block btn-primary"
